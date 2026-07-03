@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+:root {
+  --paper: #F3F1E4;
+  --paper-dim: #EAE6D3;
+  --ink: #1C2B1E;
+  --ink-soft: #3A4A3C;
+  --line: #D8D2B8;
+  --citrus: #E08A2C;
+  --citrus-bg: #FBEBD3;
+  --berry: #A6334F;
+  --berry-bg: #F3DEE1;
+  --leaf: #4C7A4A;
+  --leaf-bg: #E1EBDA;
+  --sky: #3E6E8E;
+  --sky-bg: #DDE9EE;
+  --carb: #8C6A3F;
+  --carb-bg: #EFE3CE;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+.nl-root {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.f-display {
+  font-family: var(--font-display);
+}
+
+.f-mono {
+  font-family: var(--font-mono);
+}
+
+.nl-root h1 em {
+  font-style: italic;
+  color: var(--citrus);
+}
+
+@keyframes waveScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.wave-layer {
+  animation: waveScroll 14s linear infinite;
+}
+
+.wave-layer.slow {
+  animation-duration: 22s;
+  opacity: .55;
+}
+
+@keyframes flipIn {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  60% {
+    transform: rotateX(-12deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+.banner-flip {
+  animation: flipIn .6s cubic-bezier(.2, .8, .2, 1) both;
+  transform-style: preserve-3d;
+}
+
+@keyframes floaty {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.floaty {
+  animation: floaty 5s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 34s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-layer,
+  .banner-flip,
+  .floaty,
+  .marquee-track {
+    animation: none !important;
+  }
+}
